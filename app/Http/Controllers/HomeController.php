@@ -32,4 +32,9 @@ class HomeController extends Controller
     {
         dd($req);
     }
+
+    public function checkOut(){
+        $rooms = Room::where('terisi', 1)->get();
+        return view('pages/checkout',['rooms' => $rooms]);
+    }
 }
