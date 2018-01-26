@@ -23,3 +23,5 @@ Route::post('/reg', 'HomeController@regis');
 Route::get('/', function () {
     return view('auth/login');
 });
+
+Route::get('/checkout', 'HomeController@checkOut');
