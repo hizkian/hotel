@@ -25,3 +25,5 @@ Route::get('/', function () {
 });
 
 Route::get('/checkout', 'HomeController@checkOut');
+
+Route::get('/pdf', 'HomeController@pdf');

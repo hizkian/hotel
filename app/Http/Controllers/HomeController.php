@@ -69,4 +69,9 @@ class HomeController extends Controller
         $rooms = Room::where('terisi', 1)->get();
         return view('pages/checkout',['rooms' => $rooms]);
     }
+
+    public function pdf(){
+        $pdf = PDF::loadView('pdf');
+        return $pdf->download('test.pdf');
+    }
 }
