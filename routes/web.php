@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::group(['middleware' => 'prevent-back-history'],function(){
+Route::group(['middleware' => 'prevent-back-history', 'auth'],function(){
     Auth::routes();
     Route::get('/registrasi', 'HomeController@index');
     Route::get('/', function () {

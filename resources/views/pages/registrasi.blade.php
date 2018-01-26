@@ -30,7 +30,7 @@
     </div>
     <div>
       <div>
-        <form class="" style="width:600px;margin:0 auto" action="/reg" method="POST">
+        <form id="reg" class="" style="width:600px;margin:0 auto" action="/reg" method="POST">
 
           <label class="w3-text-green"><b>Nama Lengkap</b></label>
           <input name="nama" class="w3-input w3-border w3-round-large" type="text">
@@ -67,8 +67,8 @@
 
           </div>
           <br>
+          <button type="submit" name="submit" class="w3-btn w3-green w3-right w3-round-large">Submit</button>
 
-          <input class="w3-btn w3-green w3-right w3-round-large" type="submit">
           {{ csrf_field() }}
         </form>
       </div>
@@ -77,6 +77,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
     $(document).ready(function(){
+      var count = 1;
       $("#add").click(function(){
         var a = document.getElementById("room");
         var room = a.options[a.selectedIndex].text;
@@ -92,8 +93,13 @@
         var string = room + " " + ci + checkin + co + checkout + close;
 
         //added rooms detail
-        $("#container").append
-        ("<div class='w3-panel w3-light-gray w3-padding w3-round-xlarge'><p class='w3-left' style='margin-top:5px'>" + string + "</p></div>");
+        $("#container").append("<div class='w3-panel w3-light-gray w3-padding w3-round-xlarge'><p class='w3-left' style='margin-top:5px'>" + string + "</p></div>");
+
+        $('#reg').append("<input class='w3-round-large w3-hide' type='text' value='" + room + "' name='room" + count + "'>");
+        $('#reg').append("<input class='w3-round-large w3-hide' type='date' value='" + checkin + "' name='checkin" + count + "'>");
+        $('#reg').append("<input class='w3-round-large w3-hide' type='date' value='" + checkout + "' name='checkout" + count + "'>");
+
+        count++;
       });
 
       $(document).on('click','.close',function(){
