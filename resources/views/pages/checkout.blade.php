@@ -34,9 +34,9 @@
 
       {{-- mewakili 1 kamar --}}
       @foreach ($rooms as $room)
-        <div class="w3-blue w3-round-xlarge w3-display-container" style="height:100px">
-          <p>{{$room->kamar}}</p>
-          <button type="button" class="w3-button w3-round-large w3-right w3-red" name="button">Check Out </button>
+        <div class="w3-blue w3-round-xlarge w3-display-container w3-padding w3-margin" style="height:100px">
+          <p class="w3-xlarge w3-left">{{$room->kamar}}</p>
+          <button type="button" class="w3-button w3-round-large w3-right w3-red" name="button" style="margin-top:23px">Check Out </button>
         </div>
       @endforeach
 
