@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Room;
 use App\Visitor;
+use PDF;
 
 class HomeController extends Controller
 {
@@ -57,10 +58,10 @@ class HomeController extends Controller
         $visitor->checkout = $checkout;
         $visitor->save();
 
-        $room = Room::where('kamar', $room)->update(['terisi' => 1]);
+        Room::where('kamar', $room)->update(['terisi' => 1]);
       }
 
-      return redirect()->back()->with('message', 'Message has been sent!');
+      return view('invoice', compact('req'));
 
       // dd($req);
     }
@@ -68,6 +69,11 @@ class HomeController extends Controller
     public function checkOut(){
         $rooms = Room::where('terisi', 1)->get();
         return view('pages/checkout',['rooms' => $rooms]);
+    }
+
+    public function out(Request $req){
+      Room::where('kamar', $req->button)->update(['terisi' => 0]);
+      return redirect()->back()->with('message', "sukses cekout!");
     }
 
     public function pdf(){

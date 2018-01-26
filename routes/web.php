@@ -19,6 +19,7 @@ Route::group(['middleware' => 'prevent-back-history', 'auth'],function(){
 });
 
 Route::post('/reg', 'HomeController@regis');
+Route::post('/out', 'HomeController@out');
 
 Route::get('/', function () {
     return view('auth/login');
@@ -27,3 +28,11 @@ Route::get('/', function () {
 Route::get('/checkout', 'HomeController@checkOut');
 
 Route::get('/pdf', 'HomeController@pdf');
+
+Route::get('/invoice', function(){
+    return view('invoice');
+});
+
+Route::get('/invedit', function(){
+  return view('pdf');
+});

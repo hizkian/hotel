@@ -30,8 +30,9 @@
       @endforeach
     @endif
     <div class="w3-panel w3-green" style="margin-top:0">
-      <h3>Registration Form</h3>
-      <p class="w3-left">Isi setiap baris</p>
+      <h3>Hotel Agung</h3>
+      <a class="w3-button w3-blue" href="/registrasi">Check In</a>
+      <a class="w3-button w3-blue" href="/checkout">Check Out</a>
 
       <div class="w3-dropdown-click w3-right">
         <button onclick="myFunction()" class="w3-button w3-black">{{ Auth::user()->name }} <span class="caret"></span></button>

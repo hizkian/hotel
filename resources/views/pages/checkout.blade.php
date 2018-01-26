@@ -8,10 +8,32 @@
 
   </head>
   <body>
+    @if(session()->has('message'))
+    <div class="alert alert-success">
+      <span class="fa-stack fa-lg close-button">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-check fa-stack-1x fa-inverse"></i>
+      </span>
+        <strong>Success! </strong>{{ session()->get('message') }}
+    </div>
+    @endif
+
+    @if (count($errors) > 0)
+      @foreach ($errors->all() as $error)
+        <div class="alert alert-danger">
+          <span class="fa-stack fa-lg close-button">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-times fa-stack-1x fa-inverse"></i>
+          </span>
+            <strong>Failed!</strong> {{$error}}
+        </div>
+      @endforeach
+    @endif
     {{-- header start --}}
     <div class="w3-panel w3-green" style="margin-top:0">
-      <h3>Registration Form</h3>
-      <p class="w3-left">Isi setiap baris</p>
+      <h3>Hotel Agung</h3>
+      <a class="w3-button w3-blue" href="/registrasi">Check In</a>
+      <a class="w3-button w3-blue" href="/checkout">Check Out</a>
 
       <div class="w3-dropdown-click w3-right">
         <button onclick="myFunction()" class="w3-button w3-black">{{ Auth::user()->name }} <span class="caret"></span></button>
@@ -36,11 +58,25 @@
       @foreach ($rooms as $room)
         <div class="w3-blue w3-round-xlarge w3-display-container w3-padding w3-margin" style="height:100px">
           <p class="w3-xlarge w3-left">{{$room->kamar}}</p>
-          <button type="button" class="w3-button w3-round-large w3-right w3-red" name="button" style="margin-top:23px">Check Out </button>
+          <form class="" action="/out" method="post">
+            <button type="submit" class="w3-button w3-round-large w3-right w3-red" name="button" style="margin-top:23px" value="{{$room->kamar}}">Check Out </button>
+            {{ csrf_field()}}
+          </form>
+
         </div>
       @endforeach
 
     </div>
 
+    <script type="text/javascript">
+    function myFunction() {
+        var x = document.getElementById("Demo");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }
+    </script>
   </body>
 </html>
