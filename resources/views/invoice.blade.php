@@ -8,5 +8,6 @@
   <body>
     <a class="w3-button w3-green" href="/pdf">download</a>
     <a class="w3-button w3-red" href="/registrasi">back</a>
+    {{dd($req)}}
   </body>
 </html>

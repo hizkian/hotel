@@ -8,27 +8,7 @@
 
   </head>
   <body>
-    @if(session()->has('message'))
-    <div class="alert alert-success">
-      <span class="fa-stack fa-lg close-button">
-        <i class="fa fa-circle fa-stack-2x"></i>
-        <i class="fa fa-check fa-stack-1x fa-inverse"></i>
-      </span>
-        <strong>Success! </strong>{{ session()->get('message') }}
-    </div>
-    @endif
 
-    @if (count($errors) > 0)
-      @foreach ($errors->all() as $error)
-        <div class="alert alert-danger">
-          <span class="fa-stack fa-lg close-button">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-times fa-stack-1x fa-inverse"></i>
-          </span>
-            <strong>Failed!</strong> {{$error}}
-        </div>
-      @endforeach
-    @endif
     <div class="w3-panel w3-green" style="margin-top:0">
       <h3>Hotel Agung</h3>
       <a class="w3-button w3-blue" href="/registrasi">Check In</a>
@@ -50,6 +30,27 @@
       </div>
 
     </div>
+    @if(session()->has('message'))
+    <div class="w3-panel w3-green">
+      <span class="fa-stack fa-lg close-button">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-check fa-stack-1x fa-inverse"></i>
+      </span>
+        <strong>Success! </strong>{{ session()->get('message') }}
+    </div>
+    @endif
+
+    @if (count($errors) > 0)
+      @foreach ($errors->all() as $error)
+        <div class="w3-panel w3-red">
+          <span class="fa-stack fa-lg close-button">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-times fa-stack-1x fa-inverse"></i>
+          </span>
+            <strong>Failed!</strong> {{$error}}
+        </div>
+      @endforeach
+    @endif
     <div>
       <div>
         <form id="reg" class="" style="width:600px;margin:0 auto" action="/reg" method="POST">
