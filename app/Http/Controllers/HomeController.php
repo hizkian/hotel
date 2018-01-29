@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Room;
 use App\Visitor;
 use PDF;
+use App;
 
 class HomeController extends Controller
 {
@@ -77,7 +78,10 @@ class HomeController extends Controller
     }
 
     public function pdf(){
-        $pdf = PDF::loadView('pdf');
-        return $pdf->download('test.pdf');
+        $pdf = App::make('dompdf.wrapper');
+        $pdf->loadView('pdf');
+        return $pdf->stream();
+        // $pdf = PDF::loadView('pdf');
+        // return $pdf->download('test.pdf');
     }
 }
