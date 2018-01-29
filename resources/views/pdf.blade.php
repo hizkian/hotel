@@ -23,26 +23,22 @@
         <li>(0333) 845844</li>
       </ul>
     </div>
-
+    <p>invoice No : 0000001</p>
     <hr>
     <ul style="list-style:none;margin-left:-40px">
       <li style="font-weight:bold">Atas Nama:</li>
       <li>Hizkia Nugroho</li>
     </ul>
-    <table class="w3-table w3-striped w3-display-container" style="width:100%">
 
+    <table class="w3-striped" style="width:100%">
+        {{-- table head --}}
         <tr>
           <th style="width:250px">Nama Kamar</th>
           <th>Jumlah menginap</th>
           <th>Harga</th>
           <th>Total</th>
         </tr>
-        <tr>
-          <td class="w3-padding">Anggrek 1</td>
-          <td>5</td>
-          <td>@Rp 200.000</td>
-          <td>Rp 1.000.000</td>
-        </tr>
+        {{-- table body --}}
         <tr>
           <td>Anggrek 1</td>
           <td>5</td>
