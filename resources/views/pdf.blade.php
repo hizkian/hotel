@@ -9,13 +9,21 @@
     </style>
   </head>
   <body>
-    <h1 class="">Hotel Agung</h1>
-    <hr>
-    <ul style="list-style:none;margin-left:-40px">
-      <li>Jl. Diponegoro No.9, Genteng Kulon,</li>
-      <li>Genteng, Kabupaten Banyuwangi, Jawa Timur 68465</li>
-      <li>(0333) 845844</li>
-    </ul>
+    <div class="w3-display-container">
+      <h1 class="w3-left">Hotel Agung</h1>
+      <h3 class="w3-text-grey w3-right">Hotel Invoice</h3>
+
+    </div>
+
+    <div class="w3-container">
+
+      <ul style="list-style:none;margin-left:-40px">
+        <li>Jl. Diponegoro No.9, Genteng Kulon,</li>
+        <li>Genteng, Kabupaten Banyuwangi, Jawa Timur 68465</li>
+        <li>(0333) 845844</li>
+      </ul>
+    </div>
+
     <hr>
     <ul style="list-style:none;margin-left:-40px">
       <li style="font-weight:bold">Atas Nama:</li>
