@@ -17,7 +17,7 @@ class CreateLaporanTable extends Migration
             $table->increments('id');
             $table->integer('no_invoice');
             $table->string('visitor_name');
-            $table->integre('total');
+            $table->integer('total');
         });
     }
 
