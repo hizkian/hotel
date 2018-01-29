@@ -15,7 +15,9 @@ class CreateLaporanTable extends Migration
     {
         Schema::create('laporan', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+            $table->integer('no_invoice');
+            $table->string('visitor_name');
+            $table->integre('total');
         });
     }
 
